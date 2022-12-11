@@ -11,3 +11,7 @@ For 2022 er der 2 tariffer og 2 perioder
 For 2023 er der 3 tariffer og 4 perioder
 
 Derfor bliver formlen noget længere.
+
+
+Se også denne link for yderligere information om tariffer
+https://energinet.dk/El/Elmarkedet/Tariffer/Aktuelle-tariffer
