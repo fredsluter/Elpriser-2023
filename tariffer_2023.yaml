@@ -1,0 +1,156 @@
+{% set costs = {
+  "elafgift": 0.7230,
+  "nettarif_lav_2022": 0.30032,
+  "nettarif_spids_2022": 0.76512,
+  "nettarif_lav_1": 0.17008,
+  "nettarif_lav_2": 0.18368,
+  "nettarif_hoj_1": 0.51032,
+  "nettarif_hoj_2": 0.55112,
+  "nettarif_hoj_3": 0.27552,
+  "nettarif_spids_1": 1.5308,
+  "nettarif_spids_2": 1.65328,
+  "nettarif_spids_3": 0.7164,
+  "abonnement_net": 0.00,
+  "eltillaeg_ellev": 0.11,
+  "abonnement_ellev": 0.00
+  } %}
+
+{% if now().year >= 2023 %}
+# 2023
+  {% if now().month == 1 %}
+  # jan
+    {% if now().hour >= 0 and now().hour < 6 %}
+      {{
+        costs.elafgift +
+        costs.nettarif_lav_1 +
+        costs.abonnement_net +
+        costs.eltillaeg_ellev +
+        costs.abonnement_ellev
+      }}
+    {% elif now().hour >= 17 and now().hour < 21 %}
+      {{
+        costs.elafgift +
+        costs.nettarif_spids_1 +
+        costs.abonnement_net +
+        costs.eltillaeg_ellev +
+        costs.abonnement_ellev
+      }}
+    {% else %}
+      {{
+        costs.elafgift +
+        costs.nettarif_hoj_1 +
+        costs.abonnement_net +
+        costs.eltillaeg_ellev +
+        costs.abonnement_ellev
+      }}
+    {% endif %}
+
+  {% elif now().month >= 2 or now().month < 4 %}
+  # feb-mar
+    {% if now().hour >= 0 and now().hour < 6 %}
+       {{
+        costs.elafgift +
+        costs.nettarif_lav_2 +
+        costs.abonnement_net +
+        costs.eltillaeg_ellev +
+        costs.abonnement_ellev
+      }}
+    {% elif now().hour >= 17 and now().hour < 21 %}
+       {{
+        costs.elafgift +
+        costs.nettarif_spids_2 +
+        costs.abonnement_net +
+        costs.eltillaeg_ellev +
+        costs.abonnement_ellev
+      }}
+    {% else %}
+       {{
+        costs.elafgift +
+        costs.nettarif_hoj_2 +
+        costs.abonnement_net +
+        costs.eltillaeg_ellev +
+        costs.abonnement_ellev
+      }}
+    {% endif %}
+  {% elif now().month >= 4 or now().month < 10 %}
+    {% if now().hour >= 0 and now().hour < 6 %}
+       {{
+        costs.elafgift +
+        costs.nettarif_lav_2 +
+        costs.abonnement_net +
+        costs.eltillaeg_ellev +
+        costs.abonnement_ellev
+      }}
+    {% elif now().hour >= 17 and now().hour < 21 %}
+       {{
+        costs.elafgift +
+        costs.nettarif_spids_3 +
+        costs.abonnement_net +
+        costs.eltillaeg_ellev +
+        costs.abonnement_ellev
+      }}
+    {% else %}
+       {{
+        costs.elafgift +
+        costs.nettarif_hoj_3 +
+        costs.abonnement_net +
+        costs.eltillaeg_ellev +
+        costs.abonnement_ellev
+      }}
+    {% endif %}
+  {% else %}
+    {% if now().hour >= 0 and now().hour < 6 %}
+       {{
+        costs.elafgift +
+        costs.nettarif_lav_2 +
+        costs.abonnement_net +
+        costs.eltillaeg_ellev +
+        costs.abonnement_ellev
+      }} 
+    {% elif now().hour >= 17 and now().hour < 21 %}
+       {{
+        costs.elafgift +
+        costs.nettarif_spids_2 +
+        costs.abonnement_net +
+        costs.eltillaeg_ellev +
+        costs.abonnement_ellev
+      }}  
+    {% else %}
+       {{
+        costs.elafgift +
+        costs.nettarif_hoj_2 +
+        costs.abonnement_net +
+        costs.eltillaeg_ellev +
+        costs.abonnement_ellev
+      }} 
+    {% endif %}
+  {% endif %}
+{% elif now().year == 2022 %}
+  {% if now().month >= 10 or now().month < 4 %}
+    {% if now().hour >= 17 and now().hour < 20 %}
+  {{
+    costs.elafgift +
+    costs.nettarif_spids_2022 +
+    costs.abonnement_net +
+    costs.eltillaeg_ellev +
+    costs.abonnement_ellev
+  }}
+    {% else %}
+  {{
+    costs.elafgift +
+    costs.nettarif_lav_2022 +
+    costs.abonnement_net +
+    costs.eltillaeg_ellev +
+    costs.abonnement_ellev
+  }}
+    {% endif %}
+  {% else %}
+  {{
+    costs.elafgift +
+    costs.nettarif_lav_2022 +
+    costs.abonnement_net +
+    costs.eltillaeg_ellev +
+    costs.abonnement_ellev
+  }}
+  {% endif %}
+{% endif %}
