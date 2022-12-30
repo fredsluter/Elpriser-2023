@@ -125,7 +125,7 @@
   {% if now().month >= 10 or now().month < 4 %}
     {% if now().hour >= 17 and now().hour < 20 %}
   {{
-    costs.elafgift +
+    costs.elafgift_2022 +
     costs.nettarif_spids_2022 +
     costs.abonnement_net +
     costs.eltillaeg_ellev +
@@ -133,7 +133,7 @@
   }}
     {% else %}
   {{
-    costs.elafgift +
+    costs.elafgift_2022 +
     costs.nettarif_lav_2022 +
     costs.abonnement_net +
     costs.eltillaeg_ellev +
@@ -142,7 +142,7 @@
     {% endif %}
   {% else %}
   {{
-    costs.elafgift +
+    costs.elafgift_2022 +
     costs.nettarif_lav_2022 +
     costs.abonnement_net +
     costs.eltillaeg_ellev +
