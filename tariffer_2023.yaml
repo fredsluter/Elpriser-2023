@@ -1,5 +1,5 @@
 {% set costs = {
-  "elafgift": 0.7230,
+  "elafgift": 0.080,
   "nettarif_lav_2022": 0.30032,
   "nettarif_spids_2022": 0.76512,
   "nettarif_lav_1": 0.17008,
